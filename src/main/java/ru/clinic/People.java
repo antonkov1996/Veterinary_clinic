@@ -1,5 +1,7 @@
 package ru.clinic;
 
+import java.util.Scanner;
+
 /**
  * Parent class for others
  */
@@ -21,7 +23,13 @@ public class People {
     public void setName(String name) {
         if (!name.equals("")) {
             this.name = name;
-        } else this.name = "Piter";
+        } else
+        {
+            System.out.println("Please, enter name");
+            Scanner scanner1 = new Scanner(System.in);
+            name=scanner1.nextLine();
+            setName(name);
+        }
     }
 
     public String getName() {

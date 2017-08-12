@@ -26,4 +26,7 @@ public class Veterinary extends People {
     public Skill getSkill() {
         return skill;
     }
+    /**
+     * add method heal
+     */
 }
