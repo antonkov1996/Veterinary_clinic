@@ -10,9 +10,6 @@ public class Veterinary extends People {
      */
     private static enum Skill {intern,doctor,director};
     private Skill skill;
-    public Veterinary(String name, String surname) {
-        super(name, surname);
-    }
 
     public Veterinary(String name, String surname,Skill skill) {
         super(name, surname);

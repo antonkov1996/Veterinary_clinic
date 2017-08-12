@@ -12,6 +12,26 @@ public class Pet {
     private boolean healthy;
     private illness.IllnesType illnesType;
 
+    /**
+     * Universal constructor for pet
+     * @param name
+     * @param age
+     * @param weight
+     * @param healthy
+     * @param illnesType
+     */
+    public Pet(String name, int age, int weight, boolean healthy, illness.IllnesType illnesType) {
+        setName(name);
+        setAge(age);
+        setWeight(weight);
+        setHealthy(healthy);
+        setIllnesType(illnesType);
+    }
+
+    /**
+     * Test if name is empty
+     * @param name value
+     */
     public void setName(String name) {
         Scanner scanner = new Scanner(System.in);
         if (!name.equals("")) {
@@ -45,7 +65,29 @@ public class Pet {
         return age;
     }
 
-    public static int Test(int n,String type)
+    public boolean isHealthy() {
+        return healthy;
+    }
+
+    public void setHealthy(boolean healthy) {
+        this.healthy = healthy;
+    }
+
+    public illness.IllnesType getIllnesType() {
+        return illnesType;
+    }
+
+    public void setIllnesType(illness.IllnesType illnesType) {
+        this.illnesType = illnesType;
+    }
+
+    /**
+     * Method tested value of variables
+     * @param n value
+     * @param type name
+     * @return new value
+     */
+    public static int Test(int n, String type)
     {
         Scanner scanner= new Scanner(System.in);
         int new_n=0;
