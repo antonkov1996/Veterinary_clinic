@@ -14,6 +14,7 @@ public class Pet {
 
     /**
      * Universal constructor for pet
+     *
      * @param name
      * @param age
      * @param weight
@@ -30,16 +31,16 @@ public class Pet {
 
     /**
      * Test if name is empty
+     *
      * @param name value
      */
     public void setName(String name) {
         Scanner scanner = new Scanner(System.in);
         if (!name.equals("")) {
             this.name = name;
-        } else
-        {
+        } else {
             System.out.println("Please, enter name");
-            name=scanner.nextLine();
+            name = scanner.nextLine();
             setName(name);
         }
 
@@ -50,7 +51,7 @@ public class Pet {
     }
 
     public void setWeight(int weight) {
-        this.weight = Test(weight,"weight");
+        this.weight = Test(weight, "weight");
     }
 
     public int getWeight() {
@@ -58,7 +59,7 @@ public class Pet {
     }
 
     public void setAge(int age) {
-        this.age = Test(age,"age");
+        this.age = Test(age, "age");
     }
 
     public int getAge() {
@@ -83,25 +84,23 @@ public class Pet {
 
     /**
      * Method tested value of variables
-     * @param n value
+     *
+     * @param n    value
      * @param type name
      * @return new value
      */
-    public static int Test(int n, String type)
-    {
-        Scanner scanner= new Scanner(System.in);
-        int new_n=0;
-        if (n>0&&n<50) {
-            new_n=n;
-        } else
-        {
-            System.out.println("Please, enter "+type);
-            new_n=Integer.parseInt(scanner.next());
-            Test(new_n,type);
+    public static int Test(int n, String type) {
+        Scanner scanner = new Scanner(System.in);
+        int new_n = 0;
+        if (n > 0 && n < 50) {
+            new_n = n;
+        } else {
+            System.out.println("Please, enter " + type);
+            new_n = Integer.parseInt(scanner.next());
+            Test(new_n, type);
         }
         return new_n;
     }
-
 
 
 }

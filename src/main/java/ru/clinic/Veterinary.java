@@ -8,10 +8,14 @@ public class Veterinary extends People {
     /**
      * Skill level of veterinary
      */
-    private static enum Skill {intern,doctor,director};
+    private static enum Skill {
+        intern, doctor, director
+    }
+
+    ;
     private Skill skill;
 
-    public Veterinary(String name, String surname,Skill skill) {
+    public Veterinary(String name, String surname, Skill skill) {
         super(name, surname);
         setSkill(skill);
     }

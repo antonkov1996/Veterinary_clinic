@@ -23,11 +23,10 @@ public class People {
     public void setName(String name) {
         if (!name.equals("")) {
             this.name = name;
-        } else
-        {
+        } else {
             System.out.println("Please, enter name");
             Scanner scanner1 = new Scanner(System.in);
-            name=scanner1.nextLine();
+            name = scanner1.nextLine();
             setName(name);
         }
     }
@@ -38,8 +37,13 @@ public class People {
 
     public void setSurname(String surname) {
         if (!surname.equals("")) {
-            this.surname = name;
-        } else this.surname = "Piter";
+            this.surname = surname;
+        } else {
+            System.out.println("Please, enter surname");
+            Scanner scanner1 = new Scanner(System.in);
+            surname = scanner1.nextLine();
+            setName(name);
+        }
     }
 
     public String getSurname() {
