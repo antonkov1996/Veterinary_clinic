@@ -10,7 +10,7 @@ public class Pet {
     private int age;
     private int weight;
     private boolean healthy;
-    private illness.IllnesType illnesType;
+    private String illnesType;
 
     /**
      * Universal constructor for pet
@@ -21,7 +21,7 @@ public class Pet {
      * @param healthy
      * @param illnesType
      */
-    public Pet(String name, int age, int weight, boolean healthy, illness.IllnesType illnesType) {
+    public Pet(String name, int age, int weight, boolean healthy, String illnesType) {
         setName(name);
         setAge(age);
         setWeight(weight);
@@ -74,11 +74,11 @@ public class Pet {
         this.healthy = healthy;
     }
 
-    public illness.IllnesType getIllnesType() {
+    public String getIllnesType() {
         return illnesType;
     }
 
-    public void setIllnesType(illness.IllnesType illnesType) {
+    public void setIllnesType(String illnesType) {
         this.illnesType = illnesType;
     }
 

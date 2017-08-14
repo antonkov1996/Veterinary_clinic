@@ -1,18 +1,18 @@
 package ru.clinic;
 
 public class Visitor extends People {
-    private illness.PetType petType;
+    private String petType;
 
-    public Visitor(String name, String surname, illness.PetType petType) {
+    public Visitor(String name, String surname, String petType) {
         super(name, surname);
         setPetType(petType);
     }
 
-    public illness.PetType getPetType() {
+    public String getPetType() {
         return petType;
     }
 
-    public void setPetType(illness.PetType petType) {
+    public void setPetType(String petType) {
         this.petType = petType;
     }
     /**
