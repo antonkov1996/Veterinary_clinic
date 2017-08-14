@@ -1,20 +1,21 @@
 package ru.clinic;
 
 public class Visitor extends People {
-    private String petType;
+    private Pet pet;
 
-    public Visitor(String name, String surname, String petType) {
+    public Visitor(String name, String surname, Pet pet) {
         super(name, surname);
-        setPetType(petType);
+        setPet(pet);
     }
 
-    public String getPetType() {
-        return petType;
+    public Pet getPet() {
+        return pet;
     }
 
-    public void setPetType(String petType) {
-        this.petType = petType;
+    private void setPet(Pet pet) {
+        this.pet = pet;
     }
+
     /**
      * add new method
      */

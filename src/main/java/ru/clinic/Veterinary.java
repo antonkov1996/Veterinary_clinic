@@ -8,7 +8,7 @@ public class Veterinary extends People {
     /**
      * Skill level of veterinary
      */
-    private static enum Skill {
+    public static enum Skill {
         intern, doctor, director
     }
 

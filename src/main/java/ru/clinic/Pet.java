@@ -6,22 +6,16 @@ import java.util.Scanner;
  * Parent class for others
  */
 public class Pet {
+    private String type;
     private String name;
     private int age;
     private int weight;
     private boolean healthy;
     private String illnesType;
 
-    /**
-     * Universal constructor for pet
-     *
-     * @param name
-     * @param age
-     * @param weight
-     * @param healthy
-     * @param illnesType
-     */
-    public Pet(String name, int age, int weight, boolean healthy, String illnesType) {
+
+    public Pet(String type, String name, int age, int weight, boolean healthy, String illnesType) {
+        setType(type);
         setName(name);
         setAge(age);
         setWeight(weight);
@@ -46,11 +40,15 @@ public class Pet {
 
     }
 
+    public String getType() {return type; }
+
+    private void setType(String type) {this.type = type;}
+
     public String getName() {
         return name;
     }
 
-    public void setWeight(int weight) {
+    private void setWeight(int weight) {
         this.weight = Test(weight, "weight");
     }
 
@@ -58,7 +56,7 @@ public class Pet {
         return weight;
     }
 
-    public void setAge(int age) {
+    private void setAge(int age) {
         this.age = Test(age, "age");
     }
 
@@ -78,7 +76,7 @@ public class Pet {
         return illnesType;
     }
 
-    public void setIllnesType(String illnesType) {
+    private void setIllnesType(String illnesType) {
         this.illnesType = illnesType;
     }
 
