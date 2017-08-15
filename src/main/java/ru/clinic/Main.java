@@ -9,15 +9,6 @@ import java.util.Vector;
  * visitors with pets and a list of orders.
  */
 public class Main {
-
-
-    /**
-     * Main method
-     *
-     * @param args
-     */
-    public static Vector<Order> orderVector = new Vector<>();
-
     public static void main(String[] args) {
         Vector<Visitor> visitorVector = new Vector<>();
         Vector<Veterinary> veterinaryVector = new Vector<>();
@@ -34,16 +25,17 @@ public class Main {
             Visitor visitor = new Visitor(illness.names[rnd.nextInt(9)], illness.surnames[rnd.nextInt(9)], pet);
             visitorVector.add(visitor);
         }
-
-
+        veterinaryMonitor(veterinaryVector);
+        visitorMonitor(visitorVector);
     }
+    public static Vector<Order> orderVector = new Vector<>();
 
     /**
      * Method print all persons in vector
      *
      * @param veterinaryVector vector with veterinary
      */
-    private void veterinaryMonitor(Vector<Veterinary> veterinaryVector) {
+    private static void veterinaryMonitor(Vector<Veterinary> veterinaryVector) {
         System.out.println("----------------------------------------------------------------------");
         System.out.println("Veterinary vector");
         for (Veterinary veterinaris : veterinaryVector
@@ -57,17 +49,17 @@ public class Main {
      *
      * @param visitor
      */
-    private void vititorMonitor(Vector<Visitor> visitor) {
+    private static void visitorMonitor(Vector<Visitor> visitor) {
         System.out.println("----------------------------------------------------------------------");
         System.out.println("Visitor vector");
-        for (int i = 0; i < visitor.size(); i++) {
+
             for (Visitor visitors : visitor
                     ) {
 
                 System.out.println("Name: " + visitors.getName() + " Surname: " + visitors.getSurname() + " with pet: " + visitors.getPet().getName() + " age: " + visitors.getPet().getAge() + " illness: " + visitors.getPet().getIllnesType());
 
             }
-        }
+
 
 
     }

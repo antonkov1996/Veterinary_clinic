@@ -40,16 +40,20 @@ public class Pet {
 
     }
 
-    public String getType() {return type; }
+    public String getType() {
+        return type;
+    }
 
-    private void setType(String type) {this.type = type;}
+    private void setType(String type) {
+        this.type = type;
+    }
 
     public String getName() {
         return name;
     }
 
     private void setWeight(int weight) {
-        this.weight = Test(weight, "weight");
+        this.weight = weight;
     }
 
     public int getWeight() {
@@ -57,7 +61,7 @@ public class Pet {
     }
 
     private void setAge(int age) {
-        this.age = Test(age, "age");
+        this.age = age;
     }
 
     public int getAge() {
@@ -80,25 +84,6 @@ public class Pet {
         this.illnesType = illnesType;
     }
 
-    /**
-     * Method tested value of variables
-     *
-     * @param n    value
-     * @param type name
-     * @return new value
-     */
-    public static int Test(int n, String type) {
-        Scanner scanner = new Scanner(System.in);
-        int new_n = 0;
-        if (n > 0 && n < 50) {
-            new_n = n;
-        } else {
-            System.out.println("Please, enter " + type);
-            new_n = Integer.parseInt(scanner.next());
-            Test(new_n, type);
-        }
-        return new_n;
-    }
 
 
 }
