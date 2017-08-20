@@ -27,7 +27,12 @@ public class Main {
         }
         veterinaryMonitor(veterinaryVector);
         visitorMonitor(visitorVector);
+        visitorVector.get(0).run();
+        System.out.println("order added "+orderVector.get(0).getVisitor().getName()+" "+orderVector.get(0).getVisitor().getSurname()+ "with pet "+orderVector.get(0).getVisitor().getPet().getType());
+        veterinary1.run();
+        visitorMonitor(visitorVector);
     }
+
     public static Vector<Order> orderVector = new Vector<>();
 
     /**
@@ -53,13 +58,12 @@ public class Main {
         System.out.println("----------------------------------------------------------------------");
         System.out.println("Visitor vector");
 
-            for (Visitor visitors : visitor
-                    ) {
+        for (Visitor visitors : visitor
+                ) {
 
-                System.out.println("Name: " + visitors.getName() + " Surname: " + visitors.getSurname() + " with pet: " + visitors.getPet().getName() + " age: " + visitors.getPet().getAge() + " illness: " + visitors.getPet().getIllnesType());
+            System.out.println("Name: " + visitors.getName() + " Surname: " + visitors.getSurname() + " with pet: " + visitors.getPet().getName() + " age: " + visitors.getPet().getAge() + " illness: " + visitors.getPet().getIllnesType()+" isHealtly: "+visitors.getPet().isHealthy());
 
-            }
-
+        }
 
 
     }

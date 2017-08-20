@@ -15,6 +15,7 @@ public class People {
      */
     private String surname;
 
+
     public People(String name, String surname) {
         setName(name);
         setSurname(surname);

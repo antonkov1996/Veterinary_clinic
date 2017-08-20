@@ -7,9 +7,9 @@ public class Order {
     private Visitor visitor;
     private Pet pet;
 
-    public Order(Visitor visitor, Pet pet) {
+    public Order(Visitor visitor) {
         setVisitor(visitor);
-        setPet(pet);
+
     }
 
     public void setVisitor(Visitor visitor) {
@@ -20,11 +20,4 @@ public class Order {
         return visitor;
     }
 
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
-
-    public Pet getPet() {
-        return pet;
-    }
 }

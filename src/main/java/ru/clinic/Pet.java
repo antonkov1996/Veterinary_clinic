@@ -76,6 +76,7 @@ public class Pet {
         this.healthy = healthy;
     }
 
+
     public String getIllnesType() {
         return illnesType;
     }
