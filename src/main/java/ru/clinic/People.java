@@ -26,8 +26,8 @@ public class People {
             this.name = name;
         } else {
             System.out.println("Please, enter name");
-            Scanner scanner1 = new Scanner(System.in);
-            name = scanner1.nextLine();
+            Scanner scanner = new Scanner(System.in);
+            name = scanner.nextLine();
             setName(name);
         }
     }
