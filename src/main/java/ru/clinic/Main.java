@@ -11,13 +11,14 @@ import java.util.Vector;
 public class Main {
     public static void main(String[] args) {
         Vector<Visitor> visitorVector = new Vector<>();
-        Vector<Veterinary> veterinaryVector = new Vector<>();
+        Veterinary[] veterinaries = new Veterinary[3];
         Veterinary veterinary1 = new Veterinary("Nick", "Daniels", Veterinary.Skill.intern);
         Veterinary veterinary2 = new Veterinary("Thomas", "Brown", Veterinary.Skill.doctor);
         Veterinary veterinary3 = new Veterinary("James", "Evans", Veterinary.Skill.director);
-        veterinaryVector.add(veterinary1);
-        veterinaryVector.add(veterinary2);
-        veterinaryVector.add(veterinary3);
+        veterinaries[0] = veterinary1;
+        veterinaries[1] = veterinary2;
+        veterinaries[2] = veterinary3;
+
 
         for (int i = 0; i < 10; i++) {
             Random rnd = new Random();
@@ -25,13 +26,31 @@ public class Main {
             Visitor visitor = new Visitor(illness.names[rnd.nextInt(9)], illness.surnames[rnd.nextInt(9)], pet);
             visitorVector.add(visitor);
         }
-        veterinaryMonitor(veterinaryVector);
         visitorMonitor(visitorVector);
-        visitorVector.get(0).run();
-        System.out.println("order added "+orderVector.get(0).getVisitor().getName()+" "+orderVector.get(0).getVisitor().getSurname()+ "with pet "+orderVector.get(0).getVisitor().getPet().getType());
-        veterinary1.run();
+
+        for (int i = 0; i < 10; i++) {
+            visitorVector.get(i).run();
+        }
+        //new Thread(new Veterinary("Nick", "Daniels", Veterinary.Skill.intern)).start();
+        //new Thread(new Veterinary("Thomas", "Brown", Veterinary.Skill.doctor)).start();
+        //new Thread(new Veterinary("James", "Evans", Veterinary.Skill.director)).start();
+        startThreads(veterinaries);
         visitorMonitor(visitorVector);
     }
+
+    private static void startThreads(Veterinary[] veterinaries) {
+        for (Veterinary veterinars : veterinaries
+                ) {
+
+            new Thread(veterinars).start();
+            System.out.println("veterinary ready");
+        }
+    }
+
+    public synchronized static void removeOrder() {
+        orderVector.remove(0);
+    }
+
 
     public static Vector<Order> orderVector = new Vector<>();
 
@@ -61,10 +80,11 @@ public class Main {
         for (Visitor visitors : visitor
                 ) {
 
-            System.out.println("Name: " + visitors.getName() + " Surname: " + visitors.getSurname() + " with pet: " + visitors.getPet().getName() + " age: " + visitors.getPet().getAge() + " illness: " + visitors.getPet().getIllnesType()+" isHealtly: "+visitors.getPet().isHealthy());
+            System.out.println("Name: " + visitors.getName() + " Surname: " + visitors.getSurname() + " with pet: " + visitors.getPet().getName() + " age: " + visitors.getPet().getAge() + " illness: " + visitors.getPet().getIllnesType() + " isHealtly: " + visitors.getPet().isHealthy());
 
         }
 
 
     }
+
 }

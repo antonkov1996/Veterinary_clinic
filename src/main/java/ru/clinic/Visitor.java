@@ -27,9 +27,9 @@ public class Visitor extends People implements Runnable {
      * run method for Visitor
      */
     public void run() {
-        System.out.println("Start thread");
+
         addPetToClinic(this);
-        System.out.println(""+this.getName()+"add his pet: "+this.getPet().getName()+"to order" );
+        System.out.println(""+this.getName()+"add his pet: "+this.getPet().getName()+" to order" +Main.orderVector.indexOf(this));
 
     }
 }
