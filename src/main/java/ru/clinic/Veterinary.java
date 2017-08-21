@@ -1,7 +1,8 @@
 package ru.clinic;
 
+
 /**
- * The veterinarian has a skill level that
+ * The vet has a skill level that
  * affects the speed of the treatment
  */
 public class Veterinary extends People implements Runnable {
@@ -12,13 +13,7 @@ public class Veterinary extends People implements Runnable {
         intern, doctor, director
     }
 
-    ;
-    /**
-     * variable with count of threads
-     */
-    private final static int threadCount = 3;
     private Skill skill;
-    public static int countRunThreads = 0;
 
     public Veterinary(String name, String surname, Skill skill) {
         super(name, surname);
@@ -33,27 +28,46 @@ public class Veterinary extends People implements Runnable {
         return skill;
     }
 
-    public int getCountRunThreads() {
-        return countRunThreads;
-    }
-
-    public void setCountRunThreads(int countRunThreads) {
-        this.countRunThreads = countRunThreads;
-    }
 
     /**
-     * add method heal
+     * Method Healing
      */
     public void Healing() {
+        String s = "";
         if (Main.orderVector.size() != 0) {
             Order healingOrder = Main.orderVector.get(0);
             Main.removeOrder();
-            System.out.println("Order removed by " + this.getName() + " " + this.getSurname());
+            s = "Veterinarian cures " + healingOrder.getVisitor().getSurname() + "'s pet: " + healingOrder.getVisitor().getPet().getName();
+            addString(s);
+            int i = 0;
+            switch (this.getSkill()) {
+                case intern: {
+                    i = 5000;
+                    break;
+                }
+                case doctor: {
+                    i = 5000;
+                    break;
+                }
+                case director: {
+                    i = 1000;
+                    break;
+                }
+            }
             try {
-                java.lang.Thread.sleep(1000);
-            }catch (InterruptedException e){}
+                java.lang.Thread.sleep(i);
+            } catch (InterruptedException e) {
+            }
             healingOrder.getVisitor().getPet().setHealthy(true);
-            System.out.println(healingOrder.getVisitor().getName() + "'s pet: " + healingOrder.getVisitor().getPet().getName() + " is heality");
+            s = healingOrder.getVisitor().getName() + "'s pet: " + healingOrder.getVisitor().getPet().getName() + " is healthy";
+            addString(s);
+            Healing();
+        } else {
+            try {
+                java.lang.Thread.sleep(5000);
+            } catch (InterruptedException e) {
+            }
+            Healing();
         }
     }
 
@@ -63,33 +77,22 @@ public class Veterinary extends People implements Runnable {
      */
     @Override
     public void run() {
-        setCountRunThreads(getCountRunThreads()+1);
-        System.out.println("Count "+getCountRunThreads());
-            if (checkRunning()) {
-
-                while (Main.orderVector.size() != 0) {
-                    Healing();
-                }
-            }
-
+        Healing();
 
     }
-    public synchronized boolean checkRunning() {
-        if (countRunThreads != threadCount) {
 
-            try {
-                System.out.println("Stop");
-                this.wait();
+    /**
+     * This method print text with a border
+     *
+     * @param s text to print
+     */
+    private void addString(String s) {
+        System.out.println(String.format("+%" + (s.length() + 2) + "s+", '-').replace(' ', '-'));
+        System.out.println("| " + s + " |");
+        System.out.println(String.format("+%" + (s.length() + 2) + "s+", '-').replace(' ', '-'));
+        System.out.println();
+        Main.orderMonitor(Main.orderVector);
 
-                return false;
-            } catch (InterruptedException e) {
-            }
-        } else {
-            notifyAll();
-            System.out.println("Оповещены все");
-            return true;
-        }
-        return false;
     }
 
 }

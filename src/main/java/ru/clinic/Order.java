@@ -5,7 +5,6 @@ package ru.clinic;
  */
 public class Order {
     private Visitor visitor;
-    private Pet pet;
 
     public Order(Visitor visitor) {
         setVisitor(visitor);
